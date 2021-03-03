@@ -14,6 +14,7 @@ class HomeTableViewController: UITableViewController {
     let myRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
+        tableView.rowHeight = 100
         super.viewDidLoad()
         loadTweet()
         myRefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
@@ -31,7 +32,6 @@ class HomeTableViewController: UITableViewController {
             {
                 self.tweetArray.append(tweet)
             }
-            
             self.tableView.reloadData()
             self.myRefreshControl.endRefreshing()
         }, failure: { (Error) in
